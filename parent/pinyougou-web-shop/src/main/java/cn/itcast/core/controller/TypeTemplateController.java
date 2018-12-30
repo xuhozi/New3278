@@ -1,5 +1,6 @@
 package cn.itcast.core.controller;
 
+import cn.itcast.core.pojo.template.TypeTemplate;
 import cn.itcast.core.service.TypeTemplateService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.PageResult;

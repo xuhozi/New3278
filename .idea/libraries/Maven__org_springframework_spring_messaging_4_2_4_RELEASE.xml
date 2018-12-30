@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework:spring-messaging:4.2.4.RELEASE">
     <CLASSES>
-      <root url="jar://E:/Maven/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/Maven/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE-javadoc.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://E:/Maven/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE-sources.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/org/springframework/spring-messaging/4.2.4.RELEASE/spring-messaging-4.2.4.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

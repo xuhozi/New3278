@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.alibaba:dubbo:2.8.4">
     <CLASSES>
-      <root url="jar://E:/Maven/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/Maven/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4-javadoc.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://E:/Maven/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4-sources.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/com/alibaba/dubbo/2.8.4/dubbo-2.8.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

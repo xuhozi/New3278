@@ -83,16 +83,6 @@ public class BrandServiceImpl implements  BrandService {
             brand.setId(id);
             //1:品牌状态更改
             brandDao.updateByPrimaryKeySelective(brand);
-            /*//判断一定是通过
-            if ("1".equals(status)) {
-                //发消息
-                jmsTemplate.send(topicPageAndSolrDestination, new MessageCreator() {
-                    @Override
-                    public Message createMessage(Session session) throws JMSException {
-                        return session.createTextMessage(String.valueOf(id));
-                    }
-                });
-            }*/
         }
     }
 

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: log4j:log4j:1.2.16">
     <CLASSES>
-      <root url="jar://E:/Maven/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/Maven/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16-javadoc.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://E:/Maven/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16-sources.jar!/" />
+      <root url="jar://E:/资源文件夹/新建文件夹/品优购项目/06本地仓库/repository_pinyougou3/log4j/log4j/1.2.16/log4j-1.2.16-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
