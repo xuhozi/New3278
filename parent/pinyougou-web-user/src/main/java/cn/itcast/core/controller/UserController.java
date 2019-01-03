@@ -1,10 +1,14 @@
 package cn.itcast.core.controller;
 
 import cn.itcast.common.utils.PhoneFormatCheckUtils;
+import cn.itcast.core.pojo.order.Order;
 import cn.itcast.core.pojo.user.User;
+import cn.itcast.core.service.OrderService;
 import cn.itcast.core.service.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
+import entity.PageResult;
 import entity.Result;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,5 +60,32 @@ public class UserController {
 
     }
 
+    @RequestMapping("/search")
+    public PageResult search(Integer page,Integer rows){
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userService.findPage(page,rows,userName);
+    }
 
+    @RequestMapping("/userDetailsBack")
+    public User userDetailsBack(){
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userService.findOneByUserName(userName);
+    }
+
+    @RequestMapping("/updateUserDetails")
+    public Result updateUserDetails(@RequestBody User user){
+        try {
+            userService.updateUserDetails(user);
+            return new Result(true,"修改成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"修改失败");
+        }
+    }
+
+    @RequestMapping("/showInfo")
+    public User showInfo(){
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userService.showInfo(userName);
+    }
 }

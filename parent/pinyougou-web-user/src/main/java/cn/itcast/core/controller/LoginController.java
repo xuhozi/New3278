@@ -10,6 +10,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/login")
 public class LoginController {
+
     @RequestMapping("/name")
     public Map showName(){
         String name = SecurityContextHolder.getContext().getAuthentication().getName();//得到登陆人账号

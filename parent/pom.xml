@@ -18,10 +18,12 @@
         <module>pinyougou-service-search</module>
         <module>pinyougou-service-sellergoods</module>
         <module>pinyougou-service-user</module>
+        <module>pinyougou-service-seckill</module>
         <module>pinyougou-web-manager</module>
         <module>pinyougou-web-portal</module>
         <module>pinyougou-web-shop</module>
         <module>pinyougou-web-user</module>
+        <module>pinyougou-web-seckill</module>
     </modules>
     <!-- 集中定义依赖版本号 dbcp c3p0  druid -->
     <properties>

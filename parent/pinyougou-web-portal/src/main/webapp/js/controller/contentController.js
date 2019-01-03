@@ -11,5 +11,15 @@ app.controller("contentController",function($scope,contentService){
 	$scope.search=function(){
 		location.href="http://localhost:9103/search.html#?keywords="+$scope.keywords;
 	}
+
+
+    $scope.allSortListoneId =[];
+
+    $scope.allSortList=function (oneId) {
+        contentService.allSortList(oneId).success(function (response) {
+            $scope.allSortListoneId[oneId] =response;
+        })
+    }
+
 	
 });

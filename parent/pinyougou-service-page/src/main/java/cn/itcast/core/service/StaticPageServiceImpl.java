@@ -16,10 +16,7 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import javax.servlet.ServletContext;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,35 +59,53 @@ public class StaticPageServiceImpl implements StaticPageService,ServletContextAw
             //商品对象
             Goods goods = goodsDao.selectByPrimaryKey(id);
             root.put("goods",goods);
-           root.put("itemCat1",itemCatDao.selectByPrimaryKey(goods.getCategory1Id()).getName());
+            root.put("itemCat1",itemCatDao.selectByPrimaryKey(goods.getCategory1Id()).getName());
             root.put("itemCat2",itemCatDao.selectByPrimaryKey(goods.getCategory2Id()).getName());
             root.put("itemCat3",itemCatDao.selectByPrimaryKey(goods.getCategory3Id()).getName());
             //输出
-           out=new OutputStreamWriter(new FileOutputStream(allPath),"UTF-8");
+            out=new OutputStreamWriter(new FileOutputStream(allPath),"UTF-8");
             template.process(root,out);
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
 
-                try {
-                    if (null!=out) {
-                        out.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+            try {
+                if (null!=out) {
+                    out.close();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        }
 
     }
     //获取全路径方法
     public String getPath(String path){
         return servletContext.getRealPath(path);
     }
-   private ServletContext servletContext;
+    private ServletContext servletContext;
 
 
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.servletContext=servletContext;
     }
+
+    @Override
+    public void delete(Long id){
+        //获取全路径
+        //输出路径 (相对路径)
+        String allPath = getPath("/"+id+".html");
+        File file = new File(allPath);
+        if (file.isFile()){
+            file.delete();
+        }else{
+            File[] files = file.listFiles();
+            for (File f : files) {
+                f.delete();
+            }
+        }
+    }
+
+
 }

@@ -33,10 +33,17 @@
     
 	</script>
     <!-- 引入angular的js -->
+
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
     <script type="text/javascript" src="../js/base.js"></script>
     <script type="text/javascript" src="../js/controller/indexController.js"></script>
     <script type="text/javascript" src="../js/service/loginService.js"></script>
+
+
+    <!--<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>-->
+    <!--<script type="text/javascript" src="../js/base.js"></script>-->
+    <!--<script type="text/javascript" src="../js/controller/indexController.js"></script>-->
+    <!--<script type="text/javascript" src="../js/service/loginService.js"></script>-->
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" ng-app="pinyougou" ng-controller="indexController" ng-init="showName()">
@@ -356,7 +363,78 @@
 				            </li>
 				        </ul>                        
 				    </li>
-					
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>申请管理</span>
+                            <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="brand.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 品牌申请
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="specification.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 规格申请
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="type_template.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 模板申请
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="item_cat.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 分类申请
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="goods.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 秒杀商品申请
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>订单管理</span>
+                            <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="all-order-manage-list.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 订单查询
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="orderDeliver.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 订单发货
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="all-seckillOrder-manage-list.html" target="iframe">
+                                    <i class="fa fa-circle-o"></i> 秒杀订单查询
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
 				    <!-- 菜单 /-->
 
                 </ul>

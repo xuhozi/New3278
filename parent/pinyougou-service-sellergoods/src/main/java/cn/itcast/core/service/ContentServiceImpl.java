@@ -1,8 +1,11 @@
 package cn.itcast.core.service;
 
 import cn.itcast.core.dao.ad.ContentDao;
+import cn.itcast.core.dao.item.ItemCatDao;
 import cn.itcast.core.pojo.ad.Content;
 import cn.itcast.core.pojo.ad.ContentQuery;
+import cn.itcast.core.pojo.item.ItemCat;
+import cn.itcast.core.pojo.item.ItemCatQuery;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -17,6 +20,9 @@ public class ContentServiceImpl implements ContentService {
 
 	@Autowired
 	private ContentDao contentDao;
+	@Autowired
+	private ItemCatDao itemCatDao;
+
 	@Autowired
 	private RedisTemplate redisTemplate;
 
@@ -89,6 +95,25 @@ public class ContentServiceImpl implements ContentService {
 		return contents;
 
 
+	}
+
+	@Override
+	public List<ItemCat> allSortList(Long oneId) {
+
+		List<ItemCat> itemCats = (List<ItemCat>) redisTemplate.boundHashOps("ccc").get(oneId);
+		if (itemCats ==null||itemCats.size() ==0) {
+			ItemCatQuery itemCatQuery = new ItemCatQuery();
+			itemCatQuery.createCriteria().andParentIdEqualTo(oneId);
+			List<ItemCat> itemCat = itemCatDao.selectByExample(itemCatQuery);
+			for (ItemCat itemCa : itemCat) {
+				ItemCatQuery catQuery = new ItemCatQuery();
+				catQuery.createCriteria().andParentIdEqualTo(itemCa.getId());
+				itemCa.setItemCatList(itemCatDao.selectByExample(catQuery));
+			}
+			redisTemplate.boundHashOps("ccc").put(oneId,itemCat);
+
+		}
+		return itemCats;
 	}
 
 }

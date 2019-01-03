@@ -65,4 +65,17 @@ public class GoodsController {
         }
     }
 
+    @RequestMapping("updateItemStaus")
+    public Result update(Long[] ids,String status) {
+        try {
+//            Long[]ids={149187842867982L};
+//            String status ="2";
+            goodsService.updateItemStatus(ids,status);
+            return new Result(true,"成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"失敗");
+        }
+    }
+
 }

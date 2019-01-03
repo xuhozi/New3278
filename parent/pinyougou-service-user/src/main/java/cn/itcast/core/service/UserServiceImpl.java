@@ -1,8 +1,19 @@
 package cn.itcast.core.service;
 
+import cn.itcast.core.dao.order.OrderDao;
+import cn.itcast.core.dao.order.OrderItemDao;
 import cn.itcast.core.dao.user.UserDao;
+import pojogroup.OrderVo;
+import pojogroup.OrderVoo;
+import cn.itcast.core.pojo.order.Order;
+import cn.itcast.core.pojo.order.OrderItem;
+import cn.itcast.core.pojo.order.OrderItemQuery;
+import cn.itcast.core.pojo.order.OrderQuery;
 import cn.itcast.core.pojo.user.User;
+import cn.itcast.core.pojo.user.UserQuery;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import entity.PageResult;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -10,7 +21,9 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
 import javax.jms.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,6 +37,10 @@ public class UserServiceImpl implements UserService {
     private RedisTemplate redisTemplate;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private OrderDao orderDao;
+    @Autowired
+    private OrderItemDao orderItemDao;
     @Override
     public void sendCode(String phone) {
         //1 生成 6位随机数
@@ -68,5 +85,43 @@ public class UserServiceImpl implements UserService {
             //验证码失效
             throw new RuntimeException("验证码失效");
         }
+    }
+
+    @Override
+    public PageResult findPage(Integer page,Integer rows,String userName) {
+        List<OrderVo> orderVoList = new ArrayList<>();
+        PageHelper.startPage(page,rows);
+        OrderQuery orderQuery = new OrderQuery();
+        orderQuery.createCriteria().andUserIdEqualTo(userName);
+        List<Order> orderList = orderDao.selectByExample(orderQuery);
+        for (Order order : orderList) {
+            OrderVo vo = new OrderVo();
+            vo.setOrder(order);
+            OrderItemQuery orderItemQuery = new OrderItemQuery();
+            orderItemQuery.createCriteria().andOrderIdEqualTo(order.getOrderId());
+            List<OrderItem> orderItemList = orderItemDao.selectByExample(orderItemQuery);
+            vo.setOrderItemList(orderItemList);
+            orderVoList.add(vo);
+        }
+        return new PageResult((long) orderList.size(),orderVoList);
+    }
+
+    @Override
+    public User findOneByUserName(String userName) {
+        UserQuery query = new UserQuery();
+        query.createCriteria().andUsernameEqualTo(userName);
+        return userDao.selectByExample(query).get(0);
+    }
+
+    @Override
+    public void updateUserDetails(User user) {
+        userDao.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public User showInfo(String userName) {
+        UserQuery query = new UserQuery();
+        query.createCriteria().andUsernameEqualTo(userName);
+        return userDao.selectByExample(query).get(0);
     }
 }

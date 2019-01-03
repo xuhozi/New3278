@@ -14,7 +14,7 @@ app.controller("baseController",function($scope){
 		// $scope.findByPage($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
 		$scope.search($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
 	}
-	
+
 	// 定义一个数组:
 	$scope.selectIds = [];
 	// 更新复选框：
