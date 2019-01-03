@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+
+    <dubbo:application name="pinyougou_service_seckill"/>
+
+    <dubbo:registry address="zookeeper://192.168.200.128:2181"/>
+
+    <dubbo:annotation package="cn.itcast.core.service"/>
+
+    <dubbo:protocol name="dubbo" port="20889"/>
+
+
+    <bean id="idWorker" class="cn.itcast.common.utils.IdWorker">
+        <constructor-arg index="0" value="0"/>
+        <constructor-arg index="1" value="0"/>
+    </bean>
+</beans>
