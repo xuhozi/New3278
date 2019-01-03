@@ -18,5 +18,10 @@ app.service('orderService', function ($http) {
         this.findCount = function () {
             return $http.get('../order/findCount.do');
         }
+
+        this.importData = function () {
+            return $http.get("../order/importData.do");
+        }
+
     }
 )

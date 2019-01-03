@@ -23,4 +23,6 @@ public interface OrderService {
     List<SalesVo> zhexian(Date beginTime, Date endTime) throws ParseException;
 
     void orderDeliver(Long[] ids);
+
+    List<Order> selectAll ();
 }

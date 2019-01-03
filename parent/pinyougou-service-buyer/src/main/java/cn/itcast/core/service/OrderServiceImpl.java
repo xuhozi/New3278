@@ -250,4 +250,9 @@ public class OrderServiceImpl implements OrderService {
             orderDao.updateByPrimaryKeySelective (order);
         }
     }
+
+    @Override
+    public List <Order> selectAll () {
+        return orderDao.selectByExample (null);
+    }
 }

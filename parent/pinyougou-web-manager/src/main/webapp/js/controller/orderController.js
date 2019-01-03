@@ -52,4 +52,17 @@ app.controller('orderController', function ($scope, $controller, $location, orde
             }
         );
     }
+
+    //导出
+    $scope.importData= function(){
+        // 向后台发送请求:
+        goodsService.importData().success(function(response){
+            if(response.flag){
+                alert(response.message);
+            }else{
+                alert(response.message);
+            }
+        });
+    }
+
 })
